@@ -1,7 +1,6 @@
 <template>
-  <div class="hello">
+  <div>
     <h1>{{ msg }}</h1>
-    <router-link to="test/profile">Aller à la page profil</router-link>
     <router-view></router-view>
   </div>
 </template>

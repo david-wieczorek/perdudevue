@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Hello from '@/components/Hello';
 import Test from '@/components/Test';
+import Sidebar from '@/components/Sidebar';
 import UserProfile from '@/components/Profil';
 
 Vue.use(Router);
@@ -11,18 +12,22 @@ export default new Router({
     {
       path: '/',
       name: 'Hello',
-      component: Hello,
+      components: {
+        default: Hello,
+      },
     },
     {
       path: '/test',
       name: 'Test',
-      component: Test,
+      components: {
+        default: Sidebar,
+        a: Test,
+      },
       children: [
         {
-          // `UserProfile` va être rendu à l'intérieur du `<router-view>` de `User`
-          // quand `/utilisateur/:id/profil` concorde
+          // `UserProfile` va être rendu à l'intérieur du `<router-view>` de `Test`
           path: 'profile',
-          component: UserProfile,
+          components: UserProfile,
         },
       ],
     },
